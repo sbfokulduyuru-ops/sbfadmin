@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBF-TAM Bildirim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .active-btn { border-color: #2563eb !important; background-color: #eff6ff !important; transform: scale(0.95); }
+        select { cursor: pointer; }
+        /* Kategori başlıklarını (optgroup) koyulaştırma */
+        optgroup { font-weight: 900 !important; color: #000 !important; font-style: normal; background-color: #f3f4f6; }
+        option { font-weight: normal; color: #374151; }
+        /* Yıldızlar için özel stil */
+        .star-rating { display: flex; gap: 8px; justify-content: center; }
+        .star-btn { font-size: 1.8rem; color: #d1d5db; transition: all 0.2s; cursor: pointer; }
+        .star-btn.active { color: #facc15; transform: scale(1.1); }
+    </style>
+</head>
+<body class="p-4 bg-gray-50 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden">
+        <div class="bg-blue-600 p-8 text-white text-center">
+            <h1 class="text-2xl font-black tracking-tighter uppercase leading-tight">SAĞLIK BİLİMLERİ FAKÜLTESİ</h1>
+            <div class="mt-1">
+                <p class="text-xl font-black uppercase tracking-wide leading-tight">HIZLI ÇÖZÜM >>>>> </p>
+                <p class="text-xl font-black uppercase tracking-wide leading-tight">>>>>>>SBF REFLEKS</p>
+            </div>
+        </div>
+
+        <form id="finalForm" class="p-8 space-y-5">
+            
+            <div class="flex gap-2">
+                <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-2 text-xs font-bold uppercase hover:border-blue-500 transition-all text-gray-700">Öğrenci</button>
+                <button type="button" onclick="setIdentity(this, 'Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-2 text-xs font-bold uppercase hover:border-blue-500 transition-all text-gray-700">Personel</button>
+                <input type="hidden" id="selectedIdentity" value="Belirtilmedi">
+            </div>
+
+            <select id="loc" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
+                <option value="Belirtilmedi">Birim / Yer Belirtin...</option>
+                <option value="Fakülte Sekreterliği">Fakülte Sekreterliği</option>
+                <option value="Öğrenci İşleri">Öğrenci İşleri</option>
+                <option value="SBF Kantin">SBF Kantin</option>
+                <option value="SBF Zemin Kat">SBF Zemin Kat</option>
+                <option value="SBF 1. Kat">SBF 1. Kat</option>
+                <option value="SBF Ek Bina">SBF Ek Bina</option>
+                <option value="SBF Çevre">SBF Çevre / Dış Alan</option>
+            </select>
+
+            <select id="selectedType" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
+                <option value="Belirtilmedi">Bildirim Türü...</option>
+                <option value="İstek/Talep">İstek / Talep</option>
+                <option value="Öneri">Öneri</option>
+                <option value="Şikayet">Şikayet</option>
+                <option value="Diğer">Diğer</option>
+            </select>
+
+            <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
+                <option value="Belirtilmedi">Kategori Seçiniz...</option>
+                <optgroup label="📂 TEMİZLİK İŞLERİ">
+                    <option value="Genel Temizlik">Genel Temizlik</option>
+                    <option value="Sarf Malz.(Sabun/Kağıt)">Sarf Malz.(Sabun/Kağıt)</option>
+                    <option value="Çöp Boşaltma">Çöp Boşaltma</option>
+                    <option value="Sıvı Dökülmesi / Hijyen">Sıvı Dökülmesi / Hijyen</option>
+                </optgroup>
+                <optgroup label="🔧 TEKNİK ARIZA">
+                    <option value="Elektrik / Aydınlatma">Elektrik / Aydınlatma</option>
+                    <option value="İnternet / Wi-Fi">İnternet / Wi-Fi</option>
+                    <option value="Akıllı Tahta / Prejeksiyon">Akıllı Tahta / Prejeksiyon</option>
+                    <option value="Isınma / Havalandırma">Isınma / Havalandırma</option>
+                    <option value="Asansör Arızası">Asansör Arızası</option>
+                    <option value="Sıra / Kapı Arızası">Sıra / Kapı Arızası</option>
+                </optgroup>
+            </select>
+
+            <div class="space-y-2 text-center p-4 bg-blue-50 rounded-2xl border-2 border-blue-100">
+                <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest">SBF Memnuniyet Puanınız</p>
+                <div class="star-rating">
+                    <button type="button" onclick="setRate(1)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                    <button type="button" onclick="setRate(2)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                    <button type="button" onclick="setRate(3)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                    <button type="button" onclick="setRate(4)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                    <button type="button" onclick="setRate(5)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                </div>
+                <input type="hidden" id="ratingValue" value="Seçilmedi">
+            </div>
+
+            <div class="relative border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center bg-gray-50">
+                <input type="file" id="camera" accept="image/*" class="hidden">
+                <div id="camArea" onclick="document.getElementById('camera').click()" class="cursor-pointer">
+                    <i class="fa-solid fa-camera text-2xl text-gray-300 mb-1"></i>
+                    <p id="camStatus" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Fotoğraf Çek veya Seç</p>
+                </div>
+                <div id="loader" class="hidden w-6 h-6 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
+            </div>
+
+            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-3 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="Ekstra bir notunuz var mı?"></textarea>
+
+            <div class="space-y-3">
+                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all">
+                    BİLDİRİMİ GÖNDER
+                </button>
+                <p class="text-center text-[10px] font-semibold text-blue-300 tracking-tight">
+                    © 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır.
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const TEL = "905448320046"; 
+        const API_KEY = "1014131234c99a74e9c994fb13e48dd2"; 
+        let finalPhotoLink = "";
+        let currentRating = 0;
+
+        function setIdentity(btn, val) {
+            document.getElementById('selectedIdentity').value = val;
+            document.querySelectorAll('.identity-btn').forEach(b => b.classList.remove('active-btn'));
+            btn.classList.add('active-btn');
+        }
+
+        function setRate(num) {
+            const ratingInput = document.getElementById('ratingValue');
+            const stars = document.querySelectorAll('.star-btn');
+            
+            if (currentRating === num) {
+                currentRating = 0;
+                ratingInput.value = "Seçilmedi";
+            } else {
+                currentRating = num;
+                ratingInput.value = num + " Yıldız";
+            }
+
+            stars.forEach((s, index) => {
+                index < currentRating ? s.classList.add('active') : s.classList.remove('active');
+            });
+        }
+
+        document.getElementById('camera').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            document.getElementById('camArea').classList.add('hidden');
+            document.getElementById('loader').classList.remove('hidden');
+            document.getElementById('submitBtn').disabled = true;
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = event => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const scale = 0.5;
+                    canvas.width = img.width * scale;
+                    canvas.height = img.height * scale;
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    canvas.toBlob(blob => {
+                        const fd = new FormData();
+                        fd.append('image', blob);
+                        fetch(`https://api.imgbb.com/1/upload?key=${API_KEY}`, { method: 'POST', body: fd })
+                        .then(r => r.json())
+                        .then(data => {
+                            if(data.success) {
+                                finalPhotoLink = data.data.url;
+                                document.getElementById('loader').classList.add('hidden');
+                                document.getElementById('camArea').classList.remove('hidden');
+                                document.getElementById('camStatus').innerText = "FOTOĞRAF HAZIR ✅";
+                                document.getElementById('camStatus').className = "text-[10px] font-black text-green-600 uppercase";
+                            }
+                        })
+                        .catch(() => alert("Yükleme başarısız!"))
+                        .finally(() => document.getElementById('submitBtn').disabled = false);
+                    }, 'image/jpeg', 0.6);
+                };
+            };
+        });
+
+        document.getElementById('finalForm').onsubmit = (e) => {
+            e.preventDefault();
+            const id = document.getElementById('selectedIdentity').value;
+            const l = document.getElementById('loc').value;
+            const t = document.getElementById('selectedType').value;
+            const c = document.getElementById('selectedCat').value;
+            const r = document.getElementById('ratingValue').value;
+            const n = document.getElementById('note').value || "Belirtilmedi";
+
+            const msg = `*🚨 SBF BİLDİRİM*%0A👤 *KİMDEN:* ${id}%0A📍 *KONUM:* ${l}%0A📌 *TÜR:* ${t}%0A⚠️ *KATEGORİ:* ${c}%0A⭐ *MEMNUNİYET:* ${r}%0A📝 *NOT:* ${n}%0A📸 *FOTO:* ${finalPhotoLink || 'Eklenmedi'}`;
+            window.location.href = `https://wa.me/${TEL}?text=${msg}`;
+        };
+    </script>
+</body>
+</html>
