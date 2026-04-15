@@ -20,7 +20,7 @@
         .lang-box { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 0.75rem; padding: 4px 14px; font-size: 0.75rem; font-weight: 900; cursor: pointer; backdrop-filter: blur(4px); transition: all 0.2s; }
         .lang-box.active { background: white; color: #2563eb; border-color: white; }
 
-        /* WHATSAPP CANLI DESTEK BUTONU VE KALP ATIŞI */
+        /* CANLI SOHBET BUTONU VE KALP ATIŞI */
         .chat-widget { position: fixed; bottom: 80px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); cursor: pointer; z-index: 999; transition: all 0.3s; border: 2px solid white; }
         .chat-widget:hover { transform: scale(1.1); }
         .online-dot { position: absolute; top: 0px; right: 0px; width: 14px; height: 14px; background: #00ff00; border: 2px solid white; border-radius: 50%; animation: pulse-green 1.5s infinite; }
@@ -91,15 +91,19 @@
 
             <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
                 <option value="Belirtilmedi" data-tr="Kategori Seçiniz..." data-en="Select Category...">Kategori Seçiniz...</option>
-                <optgroup label="📂 TEMİZLİK İŞLERİ" data-tr-label="📂 TEMİZLİK İŞLERİ" data-en-label="📂 CLEANING">
+                <optgroup label="📂 TEMİZLİK İŞLERİ" data-tr-label="📂 TEMİZLİK İŞLERİ" data-en-label="📂 CLEANING SERVICES">
                     <option value="Genel Temizlik" data-tr="Genel Temizlik" data-en="General Cleaning">Genel Temizlik</option>
                     <option value="Sarf Malz.(Sabun/Kağıt)" data-tr="Sarf Malz.(Sabun/Kağıt)" data-en="Consumables">Sarf Malz.(Sabun/Kağıt)</option>
                     <option value="Çöp Boşaltma" data-tr="Çöp Boşaltma" data-en="Waste Disposal">Çöp Boşaltma</option>
+                    <option value="Sıvı Dökülmesi / Hijyen" data-tr="Sıvı Dökülmesi / Hijyen" data-en="Hygiene Issues">Sıvı Dökülmesi / Hijyen</option>
                 </optgroup>
-                <optgroup label="🔧 TEKNİK ARIZA" data-tr-label="🔧 TEKNİK ARIZA" data-en-label="🔧 TECHNICAL">
+                <optgroup label="🔧 TEKNİK ARIZA" data-tr-label="🔧 TEKNİK ARIZA" data-en-label="🔧 TECHNICAL FAULTS">
                     <option value="Elektrik / Aydınlatma" data-tr="Elektrik / Aydınlatma" data-en="Electricity">Elektrik / Aydınlatma</option>
                     <option value="İnternet / Wi-Fi" data-tr="İnternet / Wi-Fi" data-en="Internet / Wi-Fi">İnternet / Wi-Fi</option>
+                    <option value="Akıllı Tahta / Prejeksiyon" data-tr="Akıllı Tahta / Prejeksiyon" data-en="Smart Board">Akıllı Tahta / Prejeksiyon</option>
+                    <option value="Isınma / Havalandırma" data-tr="Isınma / Havalandırma" data-en="Heating">Isınma / Havalandırma</option>
                     <option value="Asansör Arızası" data-tr="Asansör Arızası" data-en="Elevator Failure">Asansör Arızası</option>
+                    <option value="Sıra / Kapı Arızası" data-tr="Sıra / Kapı Arızası" data-en="Furniture Fault">Sıra / Kapı Arızası</option>
                 </optgroup>
             </select>
 
@@ -150,7 +154,12 @@
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.querySelectorAll('[data-tr]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
             document.querySelectorAll('[data-tr-placeholder]').forEach(el => { el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); });
-            document.querySelectorAll('optgroup').forEach(el => { el.label = el.getAttribute('data-' + currentLang + '-label'); });
+            
+            // Başlıkları (optgroup) güncelle
+            document.querySelectorAll('optgroup').forEach(el => {
+                el.label = el.getAttribute('data-' + currentLang + '-label');
+            });
+
             const ratingInput = document.getElementById('ratingValue');
             if (currentRating === 0) { ratingInput.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected"; }
         }
