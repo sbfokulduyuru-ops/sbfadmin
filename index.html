@@ -9,104 +9,102 @@
     <style>
         .active-btn { border-color: #2563eb !important; background-color: #eff6ff !important; transform: scale(0.95); }
         select { cursor: pointer; }
-        /* Kategori başlıklarını (optgroup) koyulaştırma */
         optgroup { font-weight: 900 !important; color: #000 !important; font-style: normal; background-color: #f3f4f6; }
         option { font-weight: normal; color: #374151; }
-        /* Yıldızlar için özel stil */
         .star-rating { display: flex; gap: 8px; justify-content: center; }
         .star-btn { font-size: 1.8rem; color: #d1d5db; transition: all 0.2s; cursor: pointer; background: none; border: none; padding: 0; }
         .star-btn.active { color: #facc15; transform: scale(1.1); }
+        #finalOverlay { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+        .green-box { background: #22c55e; color: white; padding: 2rem; border-radius: 2rem; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); max-width: 300px; width: 100%; }
+        .lang-switcher { position: absolute; top: 1rem; width: 100%; display: flex; justify-content: space-between; padding: 0 1rem; z-index: 50; }
+        .lang-box { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 0.75rem; padding: 4px 14px; font-size: 0.75rem; font-weight: 900; cursor: pointer; backdrop-filter: blur(4px); transition: all 0.2s; }
+        .lang-box.active { background: white; color: #2563eb; border-color: white; }
 
-        /* Yeşil Onay Penceresi Stili */
-        #finalOverlay { 
-            display: none; 
-            position: fixed; 
-            inset: 0; 
-            background: rgba(0, 0, 0, 0.6); 
-            z-index: 1000; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 20px;
-        }
-        .green-box {
-            background: #22c55e;
-            color: white;
-            padding: 2rem;
-            border-radius: 2rem;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            max-width: 300px;
-            width: 100%;
+        /* WHATSAPP CANLI DESTEK BUTONU VE KALP ATIŞI */
+        .chat-widget { position: fixed; bottom: 80px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); cursor: pointer; z-index: 999; transition: all 0.3s; border: 2px solid white; }
+        .chat-widget:hover { transform: scale(1.1); }
+        .online-dot { position: absolute; top: 0px; right: 0px; width: 14px; height: 14px; background: #00ff00; border: 2px solid white; border-radius: 50%; animation: pulse-green 1.5s infinite; }
+        
+        @keyframes pulse-green {
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
         }
     </style>
 </head>
 <body class="p-4 bg-gray-50 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="chat-widget" onclick="window.location.href='https://wa.me/905427918023?text=SBF Refleks Canlı Destek: Merhaba, bir konuda bilgi alabilir miyim?'">
+        <i class="fa-brands fa-whatsapp"></i>
+        <div class="online-dot"></div>
+    </div>
 
     <div id="finalOverlay">
         <div class="green-box animate-bounce">
             <div class="mb-4 bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
                 <i class="fa-solid fa-check text-3xl text-white"></i>
             </div>
-            <h2 class="text-xl font-black uppercase tracking-tighter">MESAJINIZ HAZIR</h2>
-            <p class="mt-2 text-sm font-bold opacity-90">Teşekkür ederiz! WhatsApp'a aktarılıyorsunuz...</p>
+            <h2 id="modalTitle" class="text-xl font-black uppercase tracking-tighter" data-tr="MESAJINIZ HAZIR" data-en="MESSAGE READY">MESAJINIZ HAZIR</h2>
+            <p id="modalDesc" class="mt-2 text-sm font-bold opacity-90" data-tr="WhatsApp'a aktarılıyorsunuz..." data-en="Redirecting to WhatsApp...">WhatsApp'a aktarılıyorsunuz...</p>
         </div>
     </div>
 
-    <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden">
+    <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative">
+        <div class="lang-switcher">
+            <button id="btn-tr" class="lang-box active" onclick="setLang('tr')">TR</button>
+            <button id="btn-en" class="lang-box" onclick="setLang('en')">EN</button>
+        </div>
+
         <div class="bg-blue-600 p-8 text-white text-center">
-            <h1 class="text-2xl font-black tracking-tighter uppercase leading-tight">SAĞLIK BİLİMLERİ FAKÜLTESİ</h1>
+            <h1 class="text-2xl font-black tracking-tighter uppercase leading-tight pt-4" data-tr="SAĞLIK BİLİMLERİ FAKÜLTESİ" data-en="FACULTY OF HEALTH SCIENCES">SAĞLIK BİLİMLERİ FAKÜLTESİ</h1>
             <div class="mt-1">
-                <p class="text-xl font-black uppercase tracking-wide leading-tight">HIZLI ÇÖZÜM >>>>> </p>
-                <p class="text-xl font-black uppercase tracking-wide leading-tight">>>>>>>SBF REFLEKS</p>
+                <p class="text-xl font-black uppercase tracking-wide leading-tight" data-tr="HIZLI ÇÖZÜM >>>>> " data-en="QUICK SOLUTION >>>>> ">HIZLI ÇÖZÜM >>>>> </p>
+                <p class="text-xl font-black uppercase tracking-wide leading-tight" data-tr=">>>>>>SBF REFLEKS" data-en=">>>>>>SBF REFLEX">>>>>>>SBF REFLEKS</p>
             </div>
         </div>
 
         <form id="finalForm" class="p-8 space-y-5">
             <div class="flex gap-2">
-                <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-2 text-xs font-bold uppercase hover:border-blue-500 transition-all text-gray-700">Öğrenci</button>
-                <button type="button" onclick="setIdentity(this, 'Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-2 text-xs font-bold uppercase hover:border-blue-500 transition-all text-gray-700">Personel</button>
+                <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-2 text-xs font-bold uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="Öğrenci" data-en="Student">Öğrenci</button>
+                <button type="button" onclick="setIdentity(this, 'Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-2 text-xs font-bold uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="Personel" data-en="Staff">Personel</button>
                 <input type="hidden" id="selectedIdentity" value="Belirtilmedi">
             </div>
 
             <select id="loc" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
-                <option value="Belirtilmedi">Birim / Yer Belirtin...</option>
-                <option value="Fakülte Sekreterliği">Fakülte Sekreterliği</option>
-                <option value="Öğrenci İşleri">Öğrenci İşleri</option>
-                <option value="SBF Kantin">SBF Kantin</option>
-                <option value="SBF Zemin Kat">SBF Zemin Kat</option>
-                <option value="SBF 1. Kat">SBF 1. Kat</option>
-                <option value="SBF Ek Bina">SBF Ek Bina</option>
-                <option value="SBF Çevre">SBF Çevre / Dış Alan</option>
+                <option value="Belirtilmedi" data-tr="Birim / Yer Belirtin..." data-en="Select Location...">Birim / Yer Belirtin...</option>
+                <option value="Fakülte Sekreterliği" data-tr="Fakülte Sekreterliği" data-en="Faculty Secretariat">Fakülte Sekreterliği</option>
+                <option value="Öğrenci İşleri" data-tr="Öğrenci İşleri" data-en="Student Affairs">Öğrenci İşleri</option>
+                <option value="SBF Kantin" data-tr="SBF Kantin" data-en="Canteen">SBF Kantin</option>
+                <option value="SBF Zemin Kat" data-tr="SBF Zemin Kat" data-en="Ground Floor">SBF Zemin Kat</option>
+                <option value="SBF 1. Kat" data-tr="SBF 1. Kat" data-en="1st Floor">SBF 1. Kat</option>
+                <option value="SBF Ek Bina" data-tr="SBF Ek Bina" data-en="Annex Building">SBF Ek Bina</option>
+                <option value="SBF Çevre" data-tr="SBF Çevre / Dış Alan" data-en="Outdoor Area">SBF Çevre / Dış Alan</option>
             </select>
 
             <select id="selectedType" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
-                <option value="Belirtilmedi">Bildirim Türü...</option>
-                <option value="İstek/Talep">İstek / Talep</option>
-                <option value="Öneri">Öneri</option>
-                <option value="Şikayet">Şikayet</option>
-                <option value="Diğer">Diğer</option>
+                <option value="Belirtilmedi" data-tr="Bildirim Türü..." data-en="Notification Type...">Bildirim Türü...</option>
+                <option value="İstek/Talep" data-tr="İstek / Talep" data-en="Request">İstek / Talep</option>
+                <option value="Öneri" data-tr="Öneri" data-en="Suggestion">Öneri</option>
+                <option value="Şikayet" data-tr="Şikayet" data-en="Complaint">Şikayet</option>
+                <option value="Diğer" data-tr="Diğer" data-en="Other">Diğer</option>
             </select>
 
             <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-3.5 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all">
-                <option value="Belirtilmedi">Kategori Seçiniz...</option>
-                <optgroup label="📂 TEMİZLİK İŞLERİ">
-                    <option value="Genel Temizlik">Genel Temizlik</option>
-                    <option value="Sarf Malz.(Sabun/Kağıt)">Sarf Malz.(Sabun/Kağıt)</option>
-                    <option value="Çöp Boşaltma">Çöp Boşaltma</option>
-                    <option value="Sıvı Dökülmesi / Hijyen">Sıvı Dökülmesi / Hijyen</option>
+                <option value="Belirtilmedi" data-tr="Kategori Seçiniz..." data-en="Select Category...">Kategori Seçiniz...</option>
+                <optgroup label="📂 TEMİZLİK İŞLERİ" data-tr-label="📂 TEMİZLİK İŞLERİ" data-en-label="📂 CLEANING">
+                    <option value="Genel Temizlik" data-tr="Genel Temizlik" data-en="General Cleaning">Genel Temizlik</option>
+                    <option value="Sarf Malz.(Sabun/Kağıt)" data-tr="Sarf Malz.(Sabun/Kağıt)" data-en="Consumables">Sarf Malz.(Sabun/Kağıt)</option>
+                    <option value="Çöp Boşaltma" data-tr="Çöp Boşaltma" data-en="Waste Disposal">Çöp Boşaltma</option>
                 </optgroup>
-                <optgroup label="🔧 TEKNİK ARIZA">
-                    <option value="Elektrik / Aydınlatma">Elektrik / Aydınlatma</option>
-                    <option value="İnternet / Wi-Fi">İnternet / Wi-Fi</option>
-                    <option value="Akıllı Tahta / Prejeksiyon">Akıllı Tahta / Prejeksiyon</option>
-                    <option value="Isınma / Havalandırma">Isınma / Havalandırma</option>
-                    <option value="Asansör Arızası">Asansör Arızası</option>
-                    <option value="Sıra / Kapı Arızası">Sıra / Kapı Arızası</option>
+                <optgroup label="🔧 TEKNİK ARIZA" data-tr-label="🔧 TEKNİK ARIZA" data-en-label="🔧 TECHNICAL">
+                    <option value="Elektrik / Aydınlatma" data-tr="Elektrik / Aydınlatma" data-en="Electricity">Elektrik / Aydınlatma</option>
+                    <option value="İnternet / Wi-Fi" data-tr="İnternet / Wi-Fi" data-en="Internet / Wi-Fi">İnternet / Wi-Fi</option>
+                    <option value="Asansör Arızası" data-tr="Asansör Arızası" data-en="Elevator Failure">Asansör Arızası</option>
                 </optgroup>
             </select>
 
             <div class="space-y-2 text-center p-4 bg-blue-50 rounded-2xl border-2 border-blue-100">
-                <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest">SBF Memnuniyet Puanınız</p>
+                <p id="ratingLabel" class="text-[10px] font-black text-blue-600 uppercase tracking-widest" data-tr="SBF Memnuniyet Puanınız" data-en="SBF Satisfaction Rating">SBF Memnuniyet Puanınız</p>
                 <div class="star-rating">
                     <button type="button" onclick="setRate(1)" class="star-btn"><i class="fa-solid fa-star"></i></button>
                     <button type="button" onclick="setRate(2)" class="star-btn"><i class="fa-solid fa-star"></i></button>
@@ -121,18 +119,18 @@
                 <input type="file" id="camera" accept="image/*" class="hidden">
                 <div id="camArea" onclick="document.getElementById('camera').click()" class="cursor-pointer">
                     <i class="fa-solid fa-camera text-2xl text-gray-300 mb-1"></i>
-                    <p id="camStatus" class="text-[10px] font-black text-blue-500 uppercase tracking-widest">Fotoğraf Çek veya Seç</p>
+                    <p id="camStatus" class="text-[10px] font-black text-blue-500 uppercase tracking-widest" data-tr="Fotoğraf Çek veya Seç" data-en="Take or Select Photo">Fotoğraf Çek veya Seç</p>
                 </div>
                 <div id="loader" class="hidden w-6 h-6 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
             </div>
 
-            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-3 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="Ekstra bir notunuz var mı?"></textarea>
+            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-3 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="Ekstra bir notunuz var mı?" data-tr-placeholder="Ekstra bir notunuz var mı?" data-en-placeholder="Any additional notes?"></textarea>
 
             <div class="space-y-3">
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all">
+                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all" data-tr="BİLDİRİMİ GÖNDER" data-en="SEND NOTIFICATION">
                     BİLDİRİMİ GÖNDER
                 </button>
-                <p class="text-center text-[10px] font-semibold text-blue-300 tracking-tight">
+                <p id="footerCopy" class="text-center text-[10px] font-semibold text-blue-300 tracking-tight" data-tr="© 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır." data-en="© 2026 SBF IT Unit. All Rights Reserved.">
                     © 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır.
                 </p>
             </div>
@@ -144,6 +142,18 @@
         const API_KEY = "1014131234c99a74e9c994fb13e48dd2"; 
         let finalPhotoLink = "";
         let currentRating = 0;
+        let currentLang = 'tr';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.querySelectorAll('[data-tr]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
+            document.querySelectorAll('[data-tr-placeholder]').forEach(el => { el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); });
+            document.querySelectorAll('optgroup').forEach(el => { el.label = el.getAttribute('data-' + currentLang + '-label'); });
+            const ratingInput = document.getElementById('ratingValue');
+            if (currentRating === 0) { ratingInput.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected"; }
+        }
 
         function setIdentity(btn, val) {
             document.getElementById('selectedIdentity').value = val;
@@ -154,18 +164,24 @@
         function setRate(num) {
             const ratingInput = document.getElementById('ratingValue');
             const stars = document.querySelectorAll('.star-btn');
-            
             if (currentRating === num) {
                 currentRating = 0;
-                ratingInput.value = "Seçilmedi";
+                ratingInput.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected";
             } else {
                 currentRating = num;
-                ratingInput.value = num + " Yıldız";
+                ratingInput.value = num + (currentLang === 'tr' ? " Yıldız" : " Stars");
             }
+            stars.forEach((s, index) => { index < currentRating ? s.classList.add('active') : s.classList.remove('active'); });
+        }
 
-            stars.forEach((s, index) => {
-                index < currentRating ? s.classList.add('active') : s.classList.remove('active');
-            });
+        function getTrackingNo() {
+            const now = new Date();
+            const d = String(now.getDate()).padStart(2, '0');
+            const m = String(now.getMonth() + 1).padStart(2, '0');
+            const y = now.getFullYear();
+            const h = String(now.getHours()).padStart(2, '0');
+            const min = String(now.getMinutes()).padStart(2, '0');
+            return `${d}${m}${y}_${h}${min}`;
         }
 
         document.getElementById('camera').addEventListener('change', function(e) {
@@ -174,7 +190,6 @@
             document.getElementById('camArea').classList.add('hidden');
             document.getElementById('loader').classList.remove('hidden');
             document.getElementById('submitBtn').disabled = true;
-
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = event => {
@@ -183,9 +198,7 @@
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
-                    const scale = 0.5;
-                    canvas.width = img.width * scale;
-                    canvas.height = img.height * scale;
+                    canvas.width = img.width * 0.5; canvas.height = img.height * 0.5;
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                     canvas.toBlob(blob => {
                         const fd = new FormData();
@@ -197,12 +210,11 @@
                                 finalPhotoLink = data.data.url;
                                 document.getElementById('loader').classList.add('hidden');
                                 document.getElementById('camArea').classList.remove('hidden');
-                                document.getElementById('camStatus').innerText = "FOTOĞRAF HAZIR ✅";
-                                document.getElementById('camStatus').className = "text-[10px] font-black text-green-600 uppercase";
+                                const statusEl = document.getElementById('camStatus');
+                                statusEl.innerText = currentLang === 'tr' ? "FOTOĞRAF HAZIR ✅" : "PHOTO READY ✅";
+                                statusEl.className = "text-[10px] font-black text-green-600 uppercase";
                             }
-                        })
-                        .catch(() => alert("Yükleme başarısız!"))
-                        .finally(() => document.getElementById('submitBtn').disabled = false);
+                        }).finally(() => document.getElementById('submitBtn').disabled = false);
                     }, 'image/jpeg', 0.6);
                 };
             };
@@ -210,22 +222,29 @@
 
         document.getElementById('finalForm').onsubmit = (e) => {
             e.preventDefault();
+            const trackNo = getTrackingNo();
             const id = document.getElementById('selectedIdentity').value;
             const l = document.getElementById('loc').value;
             const t = document.getElementById('selectedType').value;
             const c = document.getElementById('selectedCat').value;
             const r = document.getElementById('ratingValue').value;
-            const n = document.getElementById('note').value || "Belirtilmedi";
+            const n = document.getElementById('note').value || (currentLang === 'tr' ? "Belirtilmedi" : "Not specified");
 
-            // Onay Penceresini Göster
             document.getElementById('finalOverlay').style.display = 'flex';
 
-            const msg = `*🚨 SBF BİLDİRİM*%0A👤 *KİMDEN:* ${id}%0A📍 *KONUM:* ${l}%0A📌 *TÜR:* ${t}%0A⚠️ *KATEGORİ:* ${c}%0A⭐ *MEMNUNİYET:* ${r}%0A📝 *NOT:* ${n}%0A📸 *FOTO:* ${finalPhotoLink || 'Eklenmedi'}`;
+            const head = currentLang === 'tr' ? '🚨 SBF BİLDİRİM' : '🚨 SBF NOTIFICATION';
+            const refText = currentLang === 'tr' ? '🔢 REF NO:' : '🔢 REF NO:';
+            const from = currentLang === 'tr' ? '👤 KİMDEN:' : '👤 FROM:';
+            const locText = currentLang === 'tr' ? '📍 KONUM:' : '📍 LOCATION:';
+            const typeText = currentLang === 'tr' ? '📌 TÜR:' : '📌 TYPE:';
+            const catText = currentLang === 'tr' ? '⚠️ KATEGORİ:' : '⚠️ CATEGORY:';
+            const rateText = currentLang === 'tr' ? '⭐ MEMNUNİYET:' : '⭐ SATISFACTION:';
+            const noteText = currentLang === 'tr' ? '📝 NOT:' : '📝 NOTE:';
+            const photoText = currentLang === 'tr' ? '📸 FOTO:' : '📸 PHOTO:';
+
+            const msg = `*${head}*%0A${refText} ${trackNo}%0A${from} ${id}%0A${locText} ${l}%0A${typeText} ${t}%0A${catText} ${c}%0A${rateText} ${r}%0A${noteText} ${n}%0A${photoText} ${finalPhotoLink || (currentLang === 'tr' ? 'Eklenmedi' : 'Not added')}`;
             
-            // 1.5 saniye bekle ve WhatsApp'a yönlendir
-            setTimeout(() => {
-                window.location.href = `https://wa.me/${TEL}?text=${msg}`;
-            }, 1500);
+            setTimeout(() => { window.location.href = `https://wa.me/${TEL}?text=${msg}`; }, 1500);
         };
     </script>
 </body>
