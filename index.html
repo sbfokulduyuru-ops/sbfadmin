@@ -54,7 +54,7 @@
             <button id="btn-en" class="lang-box" onclick="setLang('en')">EN</button>
         </div>
 
-        <div class="bg-blue-600 p-8 text-white text-center text-white">
+        <div class="bg-blue-600 p-8 text-white text-center">
             <h1 class="text-2xl font-black tracking-tighter uppercase leading-tight pt-4 text-white" data-tr="SAĞLIK BİLİMLERİ FAKÜLTESİ" data-en="FACULTY OF HEALTH SCIENCES">SAĞLIK BİLİMLERİ FAKÜLTESİ</h1>
             <div class="mt-1">
                 <p class="text-xl font-black uppercase tracking-wide leading-tight text-white" data-tr="HIZLI ÇÖZÜM >>>>> " data-en="QUICK SOLUTION >>>>> ">HIZLI ÇÖZÜM >>>>> </p>
@@ -134,7 +134,7 @@
             <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-4 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="Ekstra bir notunuz var mı?" data-tr-placeholder="Ekstra bir notunuz var mı?" data-en-placeholder="Any additional notes?"></textarea>
 
             <div class="space-y-3">
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all">
+                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all" data-tr="BİLDİRİMİ GÖNDER" data-en="SEND NOTIFICATION">
                     BİLDİRİMİ GÖNDER
                 </button>
                 <p id="footerCopy" class="text-center text-[10.5px] font-semibold text-blue-300 tracking-tight" data-tr="© 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır." data-en="© 2026 SBF IT Unit. All Rights Reserved.">
@@ -155,8 +155,16 @@
             currentLang = lang;
             document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            document.querySelectorAll('[data-tr]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
-            document.querySelectorAll('[data-tr-placeholder]').forEach(el => { el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); });
+            
+            // Tüm data-tr ve data-en attribute'u olan elementleri çevir
+            document.querySelectorAll('[data-tr]').forEach(el => { 
+                el.innerText = el.getAttribute('data-' + currentLang); 
+            });
+
+            // Placeholder'ları çevir
+            document.querySelectorAll('[data-tr-placeholder]').forEach(el => { 
+                el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); 
+            });
             
             // Kutucukların içindeki grup başlıklarını çevir
             document.querySelectorAll('optgroup').forEach(el => { 
