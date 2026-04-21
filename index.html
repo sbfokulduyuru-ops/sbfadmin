@@ -12,12 +12,12 @@
         optgroup { font-weight: 900 !important; color: #000 !important; font-style: normal; background-color: #f3f4f6; }
         option { font-weight: normal; color: #374151; }
         .star-rating { display: flex; gap: 8px; justify-content: center; }
-        .star-btn { font-size: 1.8rem; color: #d1d5db; transition: all 0.2s; cursor: pointer; background: none; border: none; padding: 0; }
+        .star-btn { font-size: 2rem; color: #d1d5db; transition: all 0.2s; cursor: pointer; background: none; border: none; padding: 0; }
         .star-btn.active { color: #facc15; transform: scale(1.1); }
         #finalOverlay { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .green-box { background: #22c55e; color: white; padding: 2rem; border-radius: 2rem; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); max-width: 300px; width: 100%; }
         .lang-switcher { position: absolute; top: 1rem; width: 100%; display: flex; justify-content: space-between; padding: 0 1rem; z-index: 50; }
-        .lang-box { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 0.75rem; padding: 4px 14px; font-size: 0.75rem; font-weight: 900; cursor: pointer; backdrop-filter: blur(4px); transition: all 0.2s; }
+        .lang-box { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 0.75rem; padding: 4px 14px; font-size: 0.85rem; font-weight: 900; cursor: pointer; backdrop-filter: blur(4px); transition: all 0.2s; }
         .lang-box.active { background: white; color: #2563eb; border-color: white; }
 
         .chat-widget { position: fixed; bottom: 80px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); cursor: pointer; z-index: 999; transition: all 0.3s; border: 2px solid white; }
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative">
+    <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative border border-gray-100">
         <div class="lang-switcher">
             <button id="btn-tr" class="lang-box active" onclick="setLang('tr')">TR</button>
             <button id="btn-en" class="lang-box" onclick="setLang('en')">EN</button>
@@ -65,14 +65,14 @@
         <form id="finalForm" class="p-8 space-y-5">
             <div class="flex flex-col gap-2.5">
                 <div class="flex gap-2.5">
-                    <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="🎓 Öğrenci" data-en="🎓 Student">🎓 Öğrenci</button>
-                    <button type="button" onclick="setIdentity(this, 'İdari Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="💼 İdari Personel" data-en="💼 Admin. Staff">💼 İdari Personel</button>
+                    <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[13px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="🎓 Öğrenci" data-en="🎓 Student">🎓 Öğrenci</button>
+                    <button type="button" onclick="setIdentity(this, 'İdari Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[13px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="💼 İdari Personel" data-en="💼 Admin. Staff">💼 İdari Personel</button>
                 </div>
-                <button type="button" onclick="setIdentity(this, 'Akademik Personel')" class="identity-btn w-full border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="👨‍🏫 Akademik Personel" data-en="👨‍🏫 Academic Staff">👨‍🏫 Akademik Personel</button>
+                <button type="button" onclick="setIdentity(this, 'Akademik Personel')" class="identity-btn w-full border-2 border-gray-100 rounded-xl py-3 text-[13px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="👨‍🏫 Akademik Personel" data-en="👨‍🏫 Academic Staff">👨‍🏫 Akademik Personel</button>
                 <input type="hidden" id="selectedIdentity" value="Belirtilmedi">
             </div>
 
-            <select id="loc" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
+            <select id="loc" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-md">
                 <option value="Belirtilmedi" data-tr="📍 Birim / Yer Belirtin..." data-en="📍 Select Location...">📍 Birim / Yer Belirtin...</option>
                 <option value="Fakülte Sekreterliği" data-tr="🏢 Fakülte Sekreterliği" data-en="🏢 Secretariat">🏢 Fakülte Sekreterliği</option>
                 <option value="Öğrenci İşleri" data-tr="📄 Öğrenci İşleri" data-en="📄 Student Affairs">📄 Öğrenci İşleri</option>
@@ -83,7 +83,7 @@
                 <option value="SBF Çevre" data-tr="🌳 SBF Çevre / Dış Alan" data-en="🌳 Outdoor Area">🌳 SBF Çevre / Dış Alan</option>
             </select>
 
-            <select id="selectedType" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
+            <select id="selectedType" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-md">
                 <option value="Belirtilmedi" data-tr="📝 Bildirim Türü..." data-en="📝 Notification Type...">📝 Bildirim Türü...</option>
                 <option value="İstek/Talep" data-tr="🔵 İstek/Talep" data-en="🔵 Request/Demand">🔵 İstek/Talep</option>
                 <option value="Öneri" data-tr="🟢 Öneri" data-en="🟢 Suggestion">🟢 Öneri</option>
@@ -91,7 +91,7 @@
                 <option value="Diğer" data-tr="⚪ Diğer" data-en="⚪ Other">⚪ Diğer</option>
             </select>
 
-            <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
+            <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-md">
                 <option value="Belirtilmedi" data-tr="⚠️ Kategori Seçiniz..." data-en="⚠️ Select Category...">⚠️ Kategori Seçiniz...</option>
                 <optgroup label="📂 TEMİZLİK İŞLERİ" data-tr-label="📂 TEMİZLİK İŞLERİ" data-en-label="📂 CLEANING SERVICES">
                     <option value="Genel Temizlik" data-tr="🧹 Genel Temizlik" data-en="🧹 General Cleaning">🧹 Genel Temizlik</option>
@@ -110,7 +110,7 @@
             </select>
 
             <div class="space-y-2 text-center p-5 bg-blue-50 rounded-2xl border-2 border-blue-100">
-                <p id="ratingLabel" class="text-[11px] font-black text-blue-600 uppercase tracking-widest" data-tr="⭐ SBF Memnuniyet Puanınız" data-en="⭐ SBF Satisfaction Rating">⭐ SBF Memnuniyet Puanınız</p>
+                <p id="ratingLabel" class="text-[12px] font-black text-blue-600 uppercase tracking-widest" data-tr="⭐ SBF Memnuniyet Puanınız" data-en="⭐ SBF Satisfaction Rating">⭐ SBF Memnuniyet Puanınız</p>
                 <div class="star-rating">
                     <button type="button" onclick="setRate(1)" class="star-btn"><i class="fa-solid fa-star"></i></button>
                     <button type="button" onclick="setRate(2)" class="star-btn"><i class="fa-solid fa-star"></i></button>
@@ -121,23 +121,21 @@
                 <input type="hidden" id="ratingValue" value="Seçilmedi">
             </div>
 
-            <div class="relative border-2 border-dashed border-gray-200 rounded-2xl p-5 text-center bg-gray-50">
+            <div class="relative border-2 border-dashed border-gray-200 rounded-2xl p-5 text-center bg-gray-50 cursor-pointer" onclick="document.getElementById('camera').click()">
                 <input type="file" id="camera" accept="image/*" class="hidden" multiple>
-                <div id="camArea" onclick="document.getElementById('camera').click()" class="cursor-pointer">
-                    <i class="fa-solid fa-camera text-2xl text-gray-300 mb-1"></i>
-                    <p id="camStatus" class="text-[11px] font-black text-blue-500 uppercase tracking-widest" data-tr="📸 Fotoğraf Çek veya Seç" data-en="📸 Take or Select Photo">📸 Fotoğraf Çek veya Seç</p>
-                </div>
+                <i class="fa-solid fa-camera text-3xl text-gray-300 mb-1"></i>
+                <p id="camStatus" class="text-[12px] font-black text-blue-500 uppercase tracking-widest" data-tr="📸 Fotoğraf Çek veya Seç" data-en="📸 Take or Select Photo">📸 Fotoğraf Çek veya Seç</p>
                 <div id="photoList" class="mt-2 space-y-1 text-[11px] font-bold text-green-600 uppercase text-center"></div>
                 <div id="loader" class="hidden w-6 h-6 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
             </div>
 
-            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-4 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="🖋️ Ekstra bir notunuz var mı?" data-tr-placeholder="🖋️ Ekstra bir notunuz var mı?" data-en-placeholder="🖋️ Any additional notes?"></textarea>
+            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-4 text-md font-bold outline-none focus:border-blue-500 text-gray-700" placeholder="🖋️ Ekstra bir notunuz var mı?" data-tr-placeholder="🖋️ Ekstra bir notunuz var mı?" data-en-placeholder="🖋️ Any additional notes?"></textarea>
 
             <div class="space-y-3 pt-2">
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-5 rounded-[2rem] shadow-xl uppercase tracking-widest active:scale-95 transition-all text-lg" data-tr="BİLDİRİMİ GÖNDER" data-en="SEND NOTIFICATION">
+                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-5 rounded-[2rem] shadow-xl uppercase tracking-widest active:scale-95 transition-all text-xl" data-tr="BİLDİRİMİ GÖNDER" data-en="SEND NOTIFICATION">
                     BİLDİRİMİ GÖNDER
                 </button>
-                <p id="footerCopy" class="text-center text-[10.5px] font-semibold text-blue-300 tracking-tight" data-tr="© 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır." data-en="© 2026 SBF IT Unit. All Rights Reserved.">
+                <p class="text-center text-[11px] font-semibold text-blue-300 tracking-tight" data-tr="© 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır." data-en="© 2026 SBF IT Unit. All Rights Reserved.">
                     © 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır.
                 </p>
             </div>
