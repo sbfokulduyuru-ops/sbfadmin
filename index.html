@@ -31,7 +31,7 @@
         }
     </style>
 </head>
-<body class="p-4 bg-gray-50 flex items-center justify-center min-h-screen font-sans">
+<body class="p-4 bg-gray-50 flex items-center justify-center min-h-screen font-sans text-slate-700">
 
     <div class="chat-widget" onclick="window.location.href='https://wa.me/905427918023?text=SBF Refleks Canlı Destek: Merhaba, bir konuda bilgi alabilir miyim?'">
         <i class="fa-brands fa-whatsapp"></i>
@@ -54,7 +54,7 @@
             <button id="btn-en" class="lang-box" onclick="setLang('en')">EN</button>
         </div>
 
-        <div class="bg-blue-600 p-8 text-white text-center">
+        <div class="bg-blue-600 p-8 text-white text-center text-white">
             <h1 class="text-2xl font-black tracking-tighter uppercase leading-tight pt-4 text-white" data-tr="SAĞLIK BİLİMLERİ FAKÜLTESİ" data-en="FACULTY OF HEALTH SCIENCES">SAĞLIK BİLİMLERİ FAKÜLTESİ</h1>
             <div class="mt-1">
                 <p class="text-xl font-black uppercase tracking-wide leading-tight text-white" data-tr="HIZLI ÇÖZÜM >>>>> " data-en="QUICK SOLUTION >>>>> ">HIZLI ÇÖZÜM >>>>> </p>
@@ -74,38 +74,38 @@
 
             <select id="loc" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
                 <option value="Belirtilmedi" data-tr="Birim / Yer Belirtin..." data-en="Select Location...">Birim / Yer Belirtin...</option>
-                <option value="Fakülte Sekreterliği">Fakülte Sekreterliği</option>
-                <option value="Öğrenci İşleri">Öğrenci İşleri</option>
-                <option value="SBF Kantin">SBF Kantin</option>
-                <option value="SBF Zemin Kat">SBF Zemin Kat</option>
-                <option value="SBF 1. Kat">SBF 1. Kat</option>
-                <option value="SBF Ek Bina">SBF Ek Bina</option>
-                <option value="SBF Çevre">SBF Çevre / Dış Alan</option>
+                <option value="Fakülte Sekreterliği" data-tr="Fakülte Sekreterliği" data-en="Secretariat">Fakülte Sekreterliği</option>
+                <option value="Öğrenci İşleri" data-tr="Öğrenci İşleri" data-en="Student Affairs">Öğrenci İşleri</option>
+                <option value="SBF Kantin" data-tr="SBF Kantin" data-en="Canteen">SBF Kantin</option>
+                <option value="SBF Zemin Kat" data-tr="SBF Zemin Kat" data-en="Ground Floor">SBF Zemin Kat</option>
+                <option value="SBF 1. Kat" data-tr="SBF 1. Kat" data-en="1st Floor">SBF 1. Kat</option>
+                <option value="SBF Ek Bina" data-tr="SBF Ek Bina" data-en="Annex Building">SBF Ek Bina</option>
+                <option value="SBF Çevre" data-tr="SBF Çevre / Dış Alan" data-en="Outdoor Area">SBF Çevre / Dış Alan</option>
             </select>
 
             <select id="selectedType" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
                 <option value="Belirtilmedi" data-tr="Bildirim Türü..." data-en="Notification Type...">Bildirim Türü...</option>
-                <option value="İstek/Talep">İstek/Talep</option>
-                <option value="Öneri">Öneri</option>
-                <option value="Şikayet">Şikayet</option>
-                <option value="Diğer">Diğer</option>
+                <option value="İstek/Talep" data-tr="İstek/Talep" data-en="Request/Demand">İstek/Talep</option>
+                <option value="Öneri" data-tr="Öneri" data-en="Suggestion">Öneri</option>
+                <option value="Şikayet" data-tr="Şikayet" data-en="Complaint">Şikayet</option>
+                <option value="Diğer" data-tr="Diğer" data-en="Other">Diğer</option>
             </select>
 
             <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
                 <option value="Belirtilmedi" data-tr="Kategori Seçiniz..." data-en="Select Category...">Kategori Seçiniz...</option>
-                <optgroup label="📂 TEMİZLİK İŞLERİ">
-                    <option value="Genel Temizlik">Genel Temizlik</option>
-                    <option value="Sarf Malz.(Sabun/Kağıt)">Sarf Malz.(Sabun/Kağıt)</option>
-                    <option value="Çöp Boşaltma">Çöp Boşaltma</option>
-                    <option value="Sıvı Dökülmesi / Hijyen">Sıvı Dökülmesi / Hijyen</option>
+                <optgroup label="📂 TEMİZLİK İŞLERİ" data-tr-label="📂 TEMİZLİK İŞLERİ" data-en-label="📂 CLEANING SERVICES">
+                    <option value="Genel Temizlik" data-tr="Genel Temizlik" data-en="General Cleaning">Genel Temizlik</option>
+                    <option value="Sarf Malz.(Sabun/Kağıt)" data-tr="Sarf Malz.(Sabun/Kağıt)" data-en="Consumables">Sarf Malz.(Sabun/Kağıt)</option>
+                    <option value="Çöp Boşaltma" data-tr="Çöp Boşaltma" data-en="Waste Disposal">Çöp Boşaltma</option>
+                    <option value="Sıvı Dökülmesi / Hijyen" data-tr="Sıvı Dökülmesi / Hijyen" data-en="Spills / Hygiene">Sıvı Dökülmesi / Hijyen</option>
                 </optgroup>
-                <optgroup label="🔧 TEKNİK ARIZA">
-                    <option value="Elektrik / Aydınlatma">Elektrik / Aydınlatma</option>
-                    <option value="İnternet / Wi-Fi">İnternet / Wi-Fi</option>
-                    <option value="Akıllı Tahta / Prejeksiyon">Akıllı Tahta / Prejeksiyon</option>
-                    <option value="Isınma / Havalandırma">Isınma / Havalandırma</option>
-                    <option value="Asansör Arızası">Asansör Arızası</option>
-                    <option value="Sıra / Kapı Arızası">Sıra / Kapı Arızası</option>
+                <optgroup label="🔧 TEKNİK ARIZA" data-tr-label="🔧 TEKNİK ARIZA" data-en-label="🔧 TECHNICAL FAULTS">
+                    <option value="Elektrik / Aydınlatma" data-tr="Elektrik / Aydınlatma" data-en="Lighting / Electricity">Elektrik / Aydınlatma</option>
+                    <option value="İnternet / Wi-Fi" data-tr="İnternet / Wi-Fi" data-en="Internet / Wi-Fi">İnternet / Wi-Fi</option>
+                    <option value="Akıllı Tahta / Prejeksiyon" data-tr="Akıllı Tahta / Prejeksiyon" data-en="Smart Board / Projector">Akıllı Tahta / Prejeksiyon</option>
+                    <option value="Isınma / Havalandırma" data-tr="Isınma / Havalandırma" data-en="Heating / HVAC">Isınma / Havalandırma</option>
+                    <option value="Asansör Arızası" data-tr="Asansör Arızası" data-en="Elevator Issue">Asansör Arızası</option>
+                    <option value="Sıra / Kapı Arızası" data-tr="Sıra / Kapı Arızası" data-en="Furniture / Door Fault">Sıra / Kapı Arızası</option>
                 </optgroup>
             </select>
 
@@ -157,7 +157,21 @@
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.querySelectorAll('[data-tr]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
             document.querySelectorAll('[data-tr-placeholder]').forEach(el => { el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); });
-            document.querySelectorAll('optgroup').forEach(el => { el.label = el.getAttribute('data-' + currentLang + '-label'); });
+            
+            // Kutucukların içindeki grup başlıklarını çevir
+            document.querySelectorAll('optgroup').forEach(el => { 
+                const enLabel = el.getAttribute('data-en-label');
+                const trLabel = el.getAttribute('data-tr-label');
+                el.label = (lang === 'en' && enLabel) ? enLabel : trLabel;
+            });
+
+            // Seçenekleri (option) çevir
+            document.querySelectorAll('option').forEach(el => {
+                const enText = el.getAttribute('data-en');
+                const trText = el.getAttribute('data-tr');
+                if(enText && trText) { el.innerText = (lang === 'en') ? enText : trText; }
+            });
+
             const ratingInput = document.getElementById('ratingValue');
             if (currentRating === 0) { ratingInput.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected"; }
         }
