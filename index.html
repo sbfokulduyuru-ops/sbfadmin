@@ -65,52 +65,52 @@
         <form id="finalForm" class="p-8 space-y-5">
             <div class="flex flex-col gap-2.5">
                 <div class="flex gap-2.5">
-                    <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="Öğrenci" data-en="Student">Öğrenci</button>
-                    <button type="button" onclick="setIdentity(this, 'İdari Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="İdari Personel" data-en="Administrative Staff">İdari Personel</button>
+                    <button type="button" onclick="setIdentity(this, 'Öğrenci')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="🎓 Öğrenci" data-en="🎓 Student">🎓 Öğrenci</button>
+                    <button type="button" onclick="setIdentity(this, 'İdari Personel')" class="identity-btn flex-1 border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="💼 İdari Personel" data-en="💼 Admin. Staff">💼 İdari Personel</button>
                 </div>
-                <button type="button" onclick="setIdentity(this, 'Akademik Personel')" class="identity-btn w-full border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="Akademik Personel" data-en="Academic Staff">Akademik Personel</button>
+                <button type="button" onclick="setIdentity(this, 'Akademik Personel')" class="identity-btn w-full border-2 border-gray-100 rounded-xl py-3 text-[11.5px] font-black uppercase hover:border-blue-500 transition-all text-gray-700" data-tr="👨‍🏫 Akademik Personel" data-en="👨‍🏫 Academic Staff">👨‍🏫 Akademik Personel</button>
                 <input type="hidden" id="selectedIdentity" value="Belirtilmedi">
             </div>
 
             <select id="loc" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
-                <option value="Belirtilmedi" data-tr="Birim / Yer Belirtin..." data-en="Select Location...">Birim / Yer Belirtin...</option>
-                <option value="Fakülte Sekreterliği" data-tr="Fakülte Sekreterliği" data-en="Secretariat">Fakülte Sekreterliği</option>
-                <option value="Öğrenci İşleri" data-tr="Öğrenci İşleri" data-en="Student Affairs">Öğrenci İşleri</option>
-                <option value="SBF Kantin" data-tr="SBF Kantin" data-en="Canteen">SBF Kantin</option>
-                <option value="SBF Zemin Kat" data-tr="SBF Zemin Kat" data-en="Ground Floor">SBF Zemin Kat</option>
-                <option value="SBF 1. Kat" data-tr="SBF 1. Kat" data-en="1st Floor">SBF 1. Kat</option>
-                <option value="SBF Ek Bina" data-tr="SBF Ek Bina" data-en="Annex Building">SBF Ek Bina</option>
-                <option value="SBF Çevre" data-tr="SBF Çevre / Dış Alan" data-en="Outdoor Area">SBF Çevre / Dış Alan</option>
+                <option value="Belirtilmedi" data-tr="📍 Birim / Yer Belirtin..." data-en="📍 Select Location...">📍 Birim / Yer Belirtin...</option>
+                <option value="Fakülte Sekreterliği" data-tr="🏢 Fakülte Sekreterliği" data-en="🏢 Secretariat">🏢 Fakülte Sekreterliği</option>
+                <option value="Öğrenci İşleri" data-tr="📄 Öğrenci İşleri" data-en="📄 Student Affairs">📄 Öğrenci İşleri</option>
+                <option value="SBF Kantin" data-tr="☕ SBF Kantin" data-en="☕ Canteen">☕ SBF Kantin</option>
+                <option value="SBF Zemin Kat" data-tr="👇 SBF Zemin Kat" data-en="👇 Ground Floor">👇 SBF Zemin Kat</option>
+                <option value="SBF 1. Kat" data-tr="👆 SBF 1. Kat" data-en="👆 1st Floor">👆 SBF 1. Kat</option>
+                <option value="SBF Ek Bina" data-tr="🏠 SBF Ek Bina" data-en="🏠 Annex Building">🏠 SBF Ek Bina</option>
+                <option value="SBF Çevre" data-tr="🌳 SBF Çevre / Dış Alan" data-en="🌳 Outdoor Area">🌳 SBF Çevre / Dış Alan</option>
             </select>
 
             <select id="selectedType" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
-                <option value="Belirtilmedi" data-tr="Bildirim Türü..." data-en="Notification Type...">Bildirim Türü...</option>
-                <option value="İstek/Talep" data-tr="İstek/Talep" data-en="Request/Demand">İstek/Talep</option>
-                <option value="Öneri" data-tr="Öneri" data-en="Suggestion">Öneri</option>
-                <option value="Şikayet" data-tr="Şikayet" data-en="Complaint">Şikayet</option>
-                <option value="Diğer" data-tr="Diğer" data-en="Other">Diğer</option>
+                <option value="Belirtilmedi" data-tr="📝 Bildirim Türü..." data-en="📝 Notification Type...">📝 Bildirim Türü...</option>
+                <option value="İstek/Talep" data-tr="🔵 İstek/Talep" data-en="🔵 Request/Demand">🔵 İstek/Talep</option>
+                <option value="Öneri" data-tr="🟢 Öneri" data-en="🟢 Suggestion">🟢 Öneri</option>
+                <option value="Şikayet" data-tr="🔴 Şikayet" data-en="🔴 Complaint">🔴 Şikayet</option>
+                <option value="Diğer" data-tr="⚪ Diğer" data-en="⚪ Other">⚪ Diğer</option>
             </select>
 
             <select id="selectedCat" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl py-4 px-4 font-bold text-gray-700 outline-none focus:border-blue-500 transition-all text-sm">
-                <option value="Belirtilmedi" data-tr="Kategori Seçiniz..." data-en="Select Category...">Kategori Seçiniz...</option>
+                <option value="Belirtilmedi" data-tr="⚠️ Kategori Seçiniz..." data-en="⚠️ Select Category...">⚠️ Kategori Seçiniz...</option>
                 <optgroup label="📂 TEMİZLİK İŞLERİ" data-tr-label="📂 TEMİZLİK İŞLERİ" data-en-label="📂 CLEANING SERVICES">
-                    <option value="Genel Temizlik" data-tr="Genel Temizlik" data-en="General Cleaning">Genel Temizlik</option>
-                    <option value="Sarf Malz.(Sabun/Kağıt)" data-tr="Sarf Malz.(Sabun/Kağıt)" data-en="Consumables">Sarf Malz.(Sabun/Kağıt)</option>
-                    <option value="Çöp Boşaltma" data-tr="Çöp Boşaltma" data-en="Waste Disposal">Çöp Boşaltma</option>
-                    <option value="Sıvı Dökülmesi / Hijyen" data-tr="Sıvı Dökülmesi / Hijyen" data-en="Spills / Hygiene">Sıvı Dökülmesi / Hijyen</option>
+                    <option value="Genel Temizlik" data-tr="🧹 Genel Temizlik" data-en="🧹 General Cleaning">🧹 Genel Temizlik</option>
+                    <option value="Sarf Malz.(Sabun/Kağıt)" data-tr="🧻 Sarf Malz.(Sabun/Kağıt)" data-en="🧻 Consumables">🧻 Sarf Malz.(Sabun/Kağıt)</option>
+                    <option value="Çöp Boşaltma" data-tr="🗑️ Çöp Boşaltma" data-en="🗑️ Waste Disposal">🗑️ Çöp Boşaltma</option>
+                    <option value="Sıvı Dökülmesi / Hijyen" data-tr="💦 Sıvı Dökülmesi / Hijyen" data-en="💦 Spills / Hygiene">💦 Sıvı Dökülmesi / Hijyen</option>
                 </optgroup>
                 <optgroup label="🔧 TEKNİK ARIZA" data-tr-label="🔧 TEKNİK ARIZA" data-en-label="🔧 TECHNICAL FAULTS">
-                    <option value="Elektrik / Aydınlatma" data-tr="Elektrik / Aydınlatma" data-en="Lighting / Electricity">Elektrik / Aydınlatma</option>
-                    <option value="İnternet / Wi-Fi" data-tr="İnternet / Wi-Fi" data-en="Internet / Wi-Fi">İnternet / Wi-Fi</option>
-                    <option value="Akıllı Tahta / Prejeksiyon" data-tr="Akıllı Tahta / Prejeksiyon" data-en="Smart Board / Projector">Akıllı Tahta / Prejeksiyon</option>
-                    <option value="Isınma / Havalandırma" data-tr="Isınma / Havalandırma" data-en="Heating / HVAC">Isınma / Havalandırma</option>
-                    <option value="Asansör Arızası" data-tr="Asansör Arızası" data-en="Elevator Issue">Asansör Arızası</option>
-                    <option value="Sıra / Kapı Arızası" data-tr="Sıra / Kapı Arızası" data-en="Furniture / Door Fault">Sıra / Kapı Arızası</option>
+                    <option value="Elektrik / Aydınlatma" data-tr="💡 Elektrik / Aydınlatma" data-en="💡 Lighting / Electricity">💡 Elektrik / Aydınlatma</option>
+                    <option value="İnternet / Wi-Fi" data-tr="📶 İnternet / Wi-Fi" data-en="📶 Internet / Wi-Fi">📶 İnternet / Wi-Fi</option>
+                    <option value="Akıllı Tahta / Prejeksiyon" data-tr="🖥️ Akıllı Tahta / Prejeksiyon" data-en="🖥️ Smart Board / Projector">Akıllı Tahta / Prejeksiyon</option>
+                    <option value="Isınma / Havalandırma" data-tr="🔥 Isınma / Havalandırma" data-en="🔥 Heating / HVAC">🔥 Isınma / Havalandırma</option>
+                    <option value="Asansör Arızası" data-tr="🛗 Asansör Arızası" data-en="🛗 Elevator Issue">🛗 Asansör Arızası</option>
+                    <option value="Sıra / Kapı Arızası" data-tr="🚪 Sıra / Kapı Arızası" data-en="🚪 Furniture / Door Fault">🚪 Sıra / Kapı Arızası</option>
                 </optgroup>
             </select>
 
             <div class="space-y-2 text-center p-5 bg-blue-50 rounded-2xl border-2 border-blue-100">
-                <p id="ratingLabel" class="text-[11px] font-black text-blue-600 uppercase tracking-widest" data-tr="SBF Memnuniyet Puanınız" data-en="SBF Satisfaction Rating">SBF Memnuniyet Puanınız</p>
+                <p id="ratingLabel" class="text-[11px] font-black text-blue-600 uppercase tracking-widest" data-tr="⭐ SBF Memnuniyet Puanınız" data-en="⭐ SBF Satisfaction Rating">⭐ SBF Memnuniyet Puanınız</p>
                 <div class="star-rating">
                     <button type="button" onclick="setRate(1)" class="star-btn"><i class="fa-solid fa-star"></i></button>
                     <button type="button" onclick="setRate(2)" class="star-btn"><i class="fa-solid fa-star"></i></button>
@@ -122,19 +122,19 @@
             </div>
 
             <div class="relative border-2 border-dashed border-gray-200 rounded-2xl p-5 text-center bg-gray-50">
-                <input type="file" id="camera" accept="image/*" class="hidden">
+                <input type="file" id="camera" accept="image/*" class="hidden" multiple>
                 <div id="camArea" onclick="document.getElementById('camera').click()" class="cursor-pointer">
                     <i class="fa-solid fa-camera text-2xl text-gray-300 mb-1"></i>
-                    <p id="camStatus" class="text-[11px] font-black text-blue-500 uppercase tracking-widest" data-tr="Fotoğraf Çek veya Seç" data-en="Take or Select Photo">Fotoğraf Çek veya Seç</p>
+                    <p id="camStatus" class="text-[11px] font-black text-blue-500 uppercase tracking-widest" data-tr="📸 Fotoğraf Çek veya Seç" data-en="📸 Take or Select Photo">📸 Fotoğraf Çek veya Seç</p>
                 </div>
-                <div id="photoList" class="mt-2 space-y-1 text-[11px] font-bold text-green-600 uppercase"></div>
+                <div id="photoList" class="mt-2 space-y-1 text-[11px] font-bold text-green-600 uppercase text-center"></div>
                 <div id="loader" class="hidden w-6 h-6 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
             </div>
 
-            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-4 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="Ekstra bir notunuz var mı?" data-tr-placeholder="Ekstra bir notunuz var mı?" data-en-placeholder="Any additional notes?"></textarea>
+            <textarea id="note" rows="2" class="w-full border-2 border-gray-100 rounded-xl p-4 text-sm font-medium outline-none focus:border-blue-500 text-gray-700" placeholder="🖋️ Ekstra bir notunuz var mı?" data-tr-placeholder="🖋️ Ekstra bir notunuz var mı?" data-en-placeholder="🖋️ Any additional notes?"></textarea>
 
-            <div class="space-y-3">
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all" data-tr="BİLDİRİMİ GÖNDER" data-en="SEND NOTIFICATION">
+            <div class="space-y-3 pt-2">
+                <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white font-black py-5 rounded-[2rem] shadow-xl uppercase tracking-widest active:scale-95 transition-all text-lg" data-tr="BİLDİRİMİ GÖNDER" data-en="SEND NOTIFICATION">
                     BİLDİRİMİ GÖNDER
                 </button>
                 <p id="footerCopy" class="text-center text-[10.5px] font-semibold text-blue-300 tracking-tight" data-tr="© 2026 SBF Bilgi İşlem Birimi. Tüm Hakları Saklıdır." data-en="© 2026 SBF IT Unit. All Rights Reserved.">
@@ -145,143 +145,44 @@
     </div>
 
     <script>
-        const TEL = "905427918023"; 
-        const API_KEY = "1014131234c99a74e9c994fb13e48dd2"; 
-        let photoLinks = []; 
-        let currentRating = 0;
-        let currentLang = 'tr';
+        const TEL = "905427918023"; const API_KEY = "1014131234c99a74e9c994fb13e48dd2"; 
+        let photoLinks = []; let currentRating = 0; let currentLang = 'tr';
 
         function setLang(lang) {
             currentLang = lang;
             document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            
-            // Tüm data-tr ve data-en attribute'u olan elementleri çevir
-            document.querySelectorAll('[data-tr]').forEach(el => { 
-                el.innerText = el.getAttribute('data-' + currentLang); 
-            });
-
-            // Placeholder'ları çevir
-            document.querySelectorAll('[data-tr-placeholder]').forEach(el => { 
-                el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); 
-            });
-            
-            // Kutucukların içindeki grup başlıklarını çevir
-            document.querySelectorAll('optgroup').forEach(el => { 
-                const enLabel = el.getAttribute('data-en-label');
-                const trLabel = el.getAttribute('data-tr-label');
-                el.label = (lang === 'en' && enLabel) ? enLabel : trLabel;
-            });
-
-            // Seçenekleri (option) çevir
-            document.querySelectorAll('option').forEach(el => {
-                const enText = el.getAttribute('data-en');
-                const trText = el.getAttribute('data-tr');
-                if(enText && trText) { el.innerText = (lang === 'en') ? enText : trText; }
-            });
-
-            const ratingInput = document.getElementById('ratingValue');
-            if (currentRating === 0) { ratingInput.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected"; }
+            document.querySelectorAll('[data-tr]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
+            document.querySelectorAll('[data-tr-placeholder]').forEach(el => { el.placeholder = el.getAttribute('data-' + currentLang + '-placeholder'); });
+            document.querySelectorAll('optgroup').forEach(el => { el.label = lang === 'en' ? el.getAttribute('data-en-label') : el.getAttribute('data-tr-label'); });
+            document.querySelectorAll('option').forEach(el => { const enT = el.getAttribute('data-en'); const trT = el.getAttribute('data-tr'); if(enT && trT) el.innerText = lang === 'en' ? enT : trT; });
+            const rInp = document.getElementById('ratingValue'); if (currentRating === 0) rInp.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected";
         }
 
-        function setIdentity(btn, val) {
-            document.getElementById('selectedIdentity').value = val;
-            document.querySelectorAll('.identity-btn').forEach(b => b.classList.remove('active-btn'));
-            btn.classList.add('active-btn');
-        }
-
-        function setRate(num) {
-            const ratingInput = document.getElementById('ratingValue');
-            const stars = document.querySelectorAll('.star-btn');
-            if (currentRating === num) {
-                currentRating = 0;
-                ratingInput.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected";
-            } else {
-                currentRating = num;
-                ratingInput.value = num + (currentLang === 'tr' ? " Yıldız" : " Stars");
-            }
-            stars.forEach((s, index) => { index < currentRating ? s.classList.add('active') : s.classList.remove('active'); });
-        }
-
-        function getTrackingNo() {
-            const now = new Date();
-            const d = String(now.getDate()).padStart(2, '0');
-            const m = String(now.getMonth() + 1).padStart(2, '0');
-            const y = now.getFullYear();
-            const h = String(now.getHours()).padStart(2, '0');
-            const min = String(now.getMinutes()).padStart(2, '0');
-            return `${d}${m}${y}_${h}${min}`;
-        }
+        function setIdentity(btn, val) { document.getElementById('selectedIdentity').value = val; document.querySelectorAll('.identity-btn').forEach(b => b.classList.remove('active-btn')); btn.classList.add('active-btn'); }
+        function setRate(num) { const rInp = document.getElementById('ratingValue'); const stars = document.querySelectorAll('.star-btn'); if (currentRating === num) { currentRating = 0; rInp.value = currentLang === 'tr' ? "Seçilmedi" : "Not Selected"; } else { currentRating = num; rInp.value = num + (currentLang === 'tr' ? " Yıldız" : " Stars"); } stars.forEach((s, i) => i < currentRating ? s.classList.add('active') : s.classList.remove('active')); }
+        function getTrackingNo() { const n = new Date(); return `${String(n.getDate()).padStart(2,'0')}${String(n.getMonth()+1).padStart(2,'0')}${n.getFullYear()}_${String(n.getHours()).padStart(2,'0')}${String(n.getMinutes()).padStart(2,'0')}`; }
 
         document.getElementById('camera').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            document.getElementById('loader').classList.remove('hidden');
-            document.getElementById('submitBtn').disabled = true;
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = event => {
-                const img = new Image();
-                img.src = event.target.result;
-                img.onload = () => {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    canvas.width = img.width * 0.5; canvas.height = img.height * 0.5;
-                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                    canvas.toBlob(blob => {
-                        const fd = new FormData();
-                        fd.append('image', blob);
-                        fetch(`https://api.imgbb.com/1/upload?key=${API_KEY}`, { method: 'POST', body: fd })
-                        .then(r => r.json())
-                        .then(data => {
-                            if(data.success) {
-                                photoLinks.push(data.data.url);
-                                const list = document.getElementById('photoList');
-                                const item = document.createElement('p');
-                                item.innerText = (currentLang === 'tr' ? "FOTOĞRAF YÜKLENDİ ✅" : "PHOTO UPLOADED ✅") + " (" + photoLinks.length + ")";
-                                list.appendChild(item);
-                            }
-                        }).finally(() => {
-                            document.getElementById('loader').classList.add('hidden');
-                            document.getElementById('submitBtn').disabled = false;
-                        });
-                    }, 'image/jpeg', 0.6);
-                };
-            };
+            const files = e.target.files; if (!files.length) return;
+            document.getElementById('loader').classList.remove('hidden'); document.getElementById('submitBtn').disabled = true;
+            Array.from(files).forEach(file => {
+                const fd = new FormData(); fd.append('image', file);
+                fetch(`https://api.imgbb.com/1/upload?key=${API_KEY}`, { method: 'POST', body: fd })
+                .then(r => r.json()).then(data => {
+                    if(data.success) {
+                        photoLinks.push(data.data.url);
+                        document.getElementById('photoList').innerHTML += `<p>${(currentLang === 'tr' ? "FOTOĞRAF YÜKLENDİ ✅" : "PHOTO UPLOADED ✅")} (${photoLinks.length})</p>`;
+                    }
+                }).finally(() => { document.getElementById('loader').classList.add('hidden'); document.getElementById('submitBtn').disabled = false; });
+            });
         });
 
         document.getElementById('finalForm').onsubmit = (e) => {
-            e.preventDefault();
-            const trackNo = getTrackingNo();
-            const id = document.getElementById('selectedIdentity').value;
-            const l = document.getElementById('loc').value;
-            const t = document.getElementById('selectedType').value;
-            const c = document.getElementById('selectedCat').value;
-            const r = document.getElementById('ratingValue').value;
-            const n = document.getElementById('note').value || (currentLang === 'tr' ? "Belirtilmedi" : "Not specified");
-
+            e.preventDefault(); const trackNo = getTrackingNo();
             document.getElementById('finalOverlay').style.display = 'flex';
-
-            const head = currentLang === 'tr' ? '🚨 SBF BİLDİRİM' : '🚨 SBF NOTIFICATION';
-            const refText = currentLang === 'tr' ? '🔢 REF NO:' : '🔢 REF NO:';
-            const from = currentLang === 'tr' ? '👤 KİMDEN:' : '👤 FROM:';
-            const locText = currentLang === 'tr' ? '📍 KONUM:' : '📍 LOCATION:';
-            const typeText = currentLang === 'tr' ? '📌 TÜR:' : '📌 TYPE:';
-            const catText = currentLang === 'tr' ? '⚠️ KATEGORİ:' : '⚠️ CATEGORY:';
-            const rateText = currentLang === 'tr' ? '⭐ MEMNUNİYET:' : '⭐ SATISFACTION:';
-            const noteText = currentLang === 'tr' ? '📝 NOT:' : '📝 NOTE:';
-            const photoLabel = currentLang === 'tr' ? '📸 FOTOĞRAFLAR:' : '📸 PHOTOS:';
-
-            let photoStr = "";
-            if(photoLinks.length > 0) {
-                photoLinks.forEach((link, i) => { photoStr += `%0A👉 FOTO ${i+1}: ${link}`; });
-            } else {
-                photoStr = currentLang === 'tr' ? ' Eklenmedi' : ' Not added';
-            }
-
-            const msg = `*${head}*%0A${refText} ${trackNo}%0A${from} ${id}%0A${locText} ${l}%0A${typeText} ${t}%0A${catText} ${c}%0A${rateText} ${r}%0A${noteText} ${n}%0A${photoLabel}${photoStr}`;
-            
-            setTimeout(() => { window.location.href = `https://wa.me/${TEL}?text=${msg}`; }, 1500);
+            const msg = `*🚨 SBF BİLDİRİM*%0A🔢 REF: ${trackNo}%0A👤 KİMDEN: ${document.getElementById('selectedIdentity').value}%0A📍 KONUM: ${document.getElementById('loc').value}%0A📌 TÜR: ${document.getElementById('selectedType').value}%0A⚠️ KAT: ${document.getElementById('selectedCat').value}%0A⭐ PUAN: ${document.getElementById('ratingValue').value}%0A📝 NOT: ${document.getElementById('note').value}`;
+            setTimeout(() => window.location.href = `https://wa.me/${TEL}?text=${msg}`, 1500);
         };
     </script>
 </body>
